@@ -78,7 +78,9 @@ class _ChatHeadBodyState extends State<ChatHeadBody> {
 
     startDateTime = DateTime.now();
 
-    for (var loopIndex = 0; loopIndex < widget.reorderList.length; loopIndex++) {
+    for (var loopIndex = 0;
+        loopIndex < widget.reorderList.length;
+        loopIndex++) {
       var randomItem = (randomInts.toList()..shuffle()).first;
 
       pageViewChildren.add(currentViewComponent(
@@ -191,7 +193,9 @@ class _ChatHeadBodyState extends State<ChatHeadBody> {
     }
 
     var firebaseEvent = {
-      "view_type": widget.reorderList[(_controller.page ~/ 2)].viewType.toString().split('.')[1],
+      "view_type": widget.reorderList[(_controller.page ~/ 2)].viewType
+          .toString()
+          .split('.')[1],
       "graph_type": widget.graphType.toString().split('.')[1],
       "time_taken": timeDifference.toString(),
       "current_date": currentDate,
@@ -215,11 +219,13 @@ class _ChatHeadBodyState extends State<ChatHeadBody> {
   Widget build(BuildContext context) {
     if (widget.graphType == GraphType.barChart) {
       _items = SelectOption.selectOptionsBarGraph[filterIndex]
-          .map((selectOption) => MultiSelectItem<SelectOption>(selectOption, selectOption.name))
+          .map((selectOption) =>
+              MultiSelectItem<SelectOption>(selectOption, selectOption.name))
           .toList();
     } else {
       _items = SelectOption.selectOptionsLineGraph[filterIndex]
-          .map((selectOption) => MultiSelectItem<SelectOption>(selectOption, selectOption.name))
+          .map((selectOption) =>
+              MultiSelectItem<SelectOption>(selectOption, selectOption.name))
           .toList();
     }
 
@@ -228,7 +234,8 @@ class _ChatHeadBodyState extends State<ChatHeadBody> {
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         child: Container(
-          margin: EdgeInsets.fromLTRB(0, MediaQuery.of(context).size.height * 0.02, 0, 0),
+          margin: EdgeInsets.fromLTRB(
+              0, MediaQuery.of(context).size.height * 0.02, 0, 0),
           height: MediaQuery.of(context).size.height * 0.85,
           width: MediaQuery.of(context).size.width,
           child: Scaffold(
@@ -274,7 +281,8 @@ class _ChatHeadBodyState extends State<ChatHeadBody> {
 
                     int currentPage = _controller.page.toInt();
 
-                    ViewType currentViewType = widget.reorderList[(currentPage ~/ 2)].viewType;
+                    ViewType currentViewType =
+                        widget.reorderList[(currentPage ~/ 2)].viewType;
 
                     _controller.jumpToPage(currentPage - 1);
 
@@ -310,7 +318,8 @@ class _ChatHeadBodyState extends State<ChatHeadBody> {
 
                         DateTime endDateTime = DateTime.now();
 
-                        Duration timeDifference = endDateTime.difference(startDateTime);
+                        Duration timeDifference =
+                            endDateTime.difference(startDateTime);
 
                         String curentEventName;
 
@@ -327,15 +336,18 @@ class _ChatHeadBodyState extends State<ChatHeadBody> {
                         }
 
                         var firebaseEvent = {
-                          "view_type": widget.reorderList[(_controller.page ~/ 2)].viewType
+                          "view_type": widget
+                              .reorderList[(_controller.page ~/ 2)].viewType
                               .toString()
                               .split('.')[1],
-                          "graph_type": widget.graphType.toString().split('.')[1],
+                          "graph_type":
+                              widget.graphType.toString().split('.')[1],
                           "time_taken": timeDifference.toString(),
                           "current_date": currentDate,
                         };
 
-                        debugPrint('Swipe Event :- ${jsonEncode(firebaseEvent).toString()}');
+                        debugPrint(
+                            'Swipe Event :- ${jsonEncode(firebaseEvent).toString()}');
 
                         firebaseAnalytics.logEvent(
                           name: curentEventName,
@@ -343,7 +355,8 @@ class _ChatHeadBodyState extends State<ChatHeadBody> {
                             "swipe_event": jsonEncode(firebaseEvent).toString(),
                           },
                         ).onError(
-                          (error, stackTrace) => debugPrint('Error $error\nStackTrace $stackTrace'),
+                          (error, stackTrace) => debugPrint(
+                              'Error $error\nStackTrace $stackTrace'),
                         );
 
                         startDateTime = DateTime.now();
@@ -356,53 +369,6 @@ class _ChatHeadBodyState extends State<ChatHeadBody> {
                     ),
                   ),
                 ),
-
-                /// Action Buttons
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: Sizes.HEIGHT_10,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      /// Previous Button
-                      CustomButton(
-                        hasBoxShadow: false,
-                        onPressed: () => changePageViewIndex(true, _controller.page),
-                        borderRadius: Sizes.RADIUS_80,
-                        title: 'Back',
-                        icon: const Icon(
-                          Icons.arrow_back_ios_new,
-                          color: Colors.white,
-                        ),
-                        width: Sizes.WIDTH_120,
-                        textStyle: const TextStyle(
-                          color: AppColors.primaryRedColor,
-                          fontSize: Sizes.TEXT_SIZE_16,
-                        ),
-                        color: AppColors.neutralDark,
-                      ),
-
-                      /// Horizontal Spacing
-                      SpaceW10(),
-
-                      /// Next Button
-                      CustomButton(
-                        hasBoxShadow: false,
-                        onPressed: () => changePageViewIndex(false, _controller.page),
-                        borderRadius: Sizes.RADIUS_80,
-                        title: 'Next',
-                        icon: const Icon(Icons.arrow_forward_ios),
-                        width: Sizes.WIDTH_120,
-                        textStyle: const TextStyle(
-                          color: AppColors.whiteColor,
-                          fontSize: Sizes.TEXT_SIZE_16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
               ],
             ),
           ),
