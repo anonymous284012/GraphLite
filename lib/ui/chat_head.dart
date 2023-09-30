@@ -41,11 +41,11 @@ class _HomePageState extends State<HomePage> {
       title: 'Baseline magnification',
       viewType: ViewType.baseline,
     ),
-    ReorderListModel(
-      index: 1,
-      title: 'Chart Text summary',
-      viewType: ViewType.summary,
-    ),
+    // ReorderListModel(
+    //   index: 1,
+    //   title: 'Chart Text summary',
+    //   viewType: ViewType.summary,
+    // ),
     ReorderListModel(
       index: 2,
       title: 'Table of Content and Caption',

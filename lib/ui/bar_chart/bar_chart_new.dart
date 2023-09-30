@@ -149,16 +149,16 @@ class _BarChartNewState extends State<BarChartNew> {
             // Enable legend
             legend: Legend(isVisible: true),
             // Enable tooltip
-            tooltipBehavior: TooltipBehavior(
-              enable: true,
-              textAlignment: ChartAlignment.center,
-              color: themeProvider.tooltipContrastColor,
-              format: 'point.y\npoint.x',
-              textStyle: TextStyle(
-                fontSize: themeProvider.tooltipSize,
-                color: themeProvider.tooltipTitleColor,
-              ),
-            ),
+            // tooltipBehavior: TooltipBehavior(
+            //   enable: true,
+            //   textAlignment: ChartAlignment.center,
+            //   color: themeProvider.tooltipContrastColor,
+            //   format: 'point.y\npoint.x',
+            //   textStyle: TextStyle(
+            //     fontSize: themeProvider.tooltipSize,
+            //     color: themeProvider.tooltipTitleColor,
+            //   ),
+            // ),
             onZoomStart: (zoomingArgs) {
               debugPrint("Zooming Args :- ${zoomingArgs.currentZoomFactor}");
               if (zoomingArgs.currentZoomFactor > 0) {

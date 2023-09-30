@@ -141,44 +141,44 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ],
                   ),
                   SpaceH16(),
-                  GestureDetector(
-                    onTap: () async {
-                      final Color selectedColor =
-                          await ColorPickerDialogHelper.showColorPickerDialog(
-                        context: context,
-                        selectedColor: toolTipContrastSelectedValue,
-                      );
-                      themeProvider.changeTooltipContrastColor(selectedColor);
-                      setState(() => toolTipContrastSelectedValue = selectedColor);
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        themeLabel('Tool-Tip Contrast'),
-                        colorLabel(toolTipContrastSelectedValue)
-                      ],
-                    ),
-                  ),
-                  SpaceH16(),
-                  GestureDetector(
-                    onTap: () async {
-                      final Color selectedColor =
-                          await ColorPickerDialogHelper.showColorPickerDialog(
-                        context: context,
-                        selectedColor: toolTipTitleSelectedValue,
-                      );
-                      themeProvider.changeTooltipTitleColor(selectedColor);
-                      setState(() => toolTipTitleSelectedValue = selectedColor);
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        themeLabel('Tool-Tip Text Color'),
-                        colorLabel(toolTipTitleSelectedValue)
-                      ],
-                    ),
-                  ),
-                  SpaceH16(),
+                  // GestureDetector(
+                  //   onTap: () async {
+                  //     final Color selectedColor =
+                  //         await ColorPickerDialogHelper.showColorPickerDialog(
+                  //       context: context,
+                  //       selectedColor: toolTipContrastSelectedValue,
+                  //     );
+                  //     themeProvider.changeTooltipContrastColor(selectedColor);
+                  //     setState(() => toolTipContrastSelectedValue = selectedColor);
+                  //   },
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //     children: [
+                  //       themeLabel('Tool-Tip Contrast'),
+                  //       colorLabel(toolTipContrastSelectedValue)
+                  //     ],
+                  //   ),
+                  // ),
+                  // SpaceH16(),
+                  // GestureDetector(
+                  //   onTap: () async {
+                  //     final Color selectedColor =
+                  //         await ColorPickerDialogHelper.showColorPickerDialog(
+                  //       context: context,
+                  //       selectedColor: toolTipTitleSelectedValue,
+                  //     );
+                  //     themeProvider.changeTooltipTitleColor(selectedColor);
+                  //     setState(() => toolTipTitleSelectedValue = selectedColor);
+                  //   },
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //     children: [
+                  //       themeLabel('Tool-Tip Text Color'),
+                  //       colorLabel(toolTipTitleSelectedValue)
+                  //     ],
+                  //   ),
+                  // ),
+                  // SpaceH16(),
                   GestureDetector(
                     onTap: () async {
                       final Color selectedColor =
@@ -254,44 +254,44 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                     ],
                   ),
-                  SpaceH16(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      themeLabel('Tooltip Text Size'),
-                      DropdownButton2(
-                        hint: const Text(
-                          'Pick Size',
-                          style: TextStyle(
-                            fontSize: 14,
-                          ),
-                        ),
-                        items: toolTipFontSizeList
-                            .map((item) => DropdownMenuItem<double>(
-                                  value: item,
-                                  child: Text(
-                                    '$item px',
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ))
-                            .toList(),
-                        value: tooltipSizeSelectedValue,
-                        onChanged: (value) {
-                          themeProvider.changeToolTipSize(value);
-                          setState(() => tooltipSizeSelectedValue = value);
-                        },
-                        buttonStyleData: const ButtonStyleData(
-                          height: 40,
-                          width: 140,
-                        ),
-                        menuItemStyleData: const MenuItemStyleData(
-                          height: 40,
-                        ),
-                      ),
-                    ],
-                  ),
+                  // SpaceH16(),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //   children: [
+                  //     themeLabel('Tooltip Text Size'),
+                  //     DropdownButton2(
+                  //       hint: const Text(
+                  //         'Pick Size',
+                  //         style: TextStyle(
+                  //           fontSize: 14,
+                  //         ),
+                  //       ),
+                  //       items: toolTipFontSizeList
+                  //           .map((item) => DropdownMenuItem<double>(
+                  //                 value: item,
+                  //                 child: Text(
+                  //                   '$item px',
+                  //                   style: const TextStyle(
+                  //                     fontSize: 14,
+                  //                   ),
+                  //                 ),
+                  //               ))
+                  //           .toList(),
+                  //       value: tooltipSizeSelectedValue,
+                  //       onChanged: (value) {
+                  //         themeProvider.changeToolTipSize(value);
+                  //         setState(() => tooltipSizeSelectedValue = value);
+                  //       },
+                  //       buttonStyleData: const ButtonStyleData(
+                  //         height: 40,
+                  //         width: 140,
+                  //       ),
+                  //       menuItemStyleData: const MenuItemStyleData(
+                  //         height: 40,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
             ),
